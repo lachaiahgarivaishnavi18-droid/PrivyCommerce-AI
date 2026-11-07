@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "fastapi",
+  "buildCommand": "npm --prefix frontend ci && npm --prefix frontend run build && python scripts/package_vercel.py",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/assistant", "destination": "/index.html" },
+    { "source": "/memory", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/federation", "destination": "/index.html" },
+    { "source": "/orders", "destination": "/index.html" },
+    { "source": "/compare", "destination": "/index.html" },
+    { "source": "/products/:path*", "destination": "/index.html" }
+  ],
+  "functions": {
+    "app.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{.venv/**,frontend/node_modules/**,frontend/.tools/**,frontend/src/**,frontend/dist/**,screenshots/**,scripts/**,backend/tests/**,*.db}"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.git
+.venv
+**/node_modules
+**/.tools
+**/__pycache__
+**/.pytest_cache
+**/.env*
+*.db
+screenshots
+product-contact-sheet.jpg
+image-verification.json
+backend/tests
+frontend/dist
